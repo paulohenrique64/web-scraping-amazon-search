@@ -1,0 +1,247 @@
+body {
+    font-family: sans-serif;
+    width: 100%;
+    margin: 0;
+}
+
+.header {
+    margin-bottom: 8vh;
+}
+
+.footer {
+    margin-top: 3vh;
+}
+
+.header, .footer {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #111d5e;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+    z-index: 1000;
+}
+
+.header > img, .footer > img {
+    width: 200px;
+    height: auto;
+}
+
+.header > img:last-child, .footer > img:last-child  {
+    width: 100px;
+    margin-left: 3vh;
+}
+
+.container {
+    min-width: 70%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-container {
+    width: 80%;
+    position: relative;
+    left: 40%;
+    top: 40%;
+    transform: translate(-50% , -50%);
+}
+
+.search-box {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #111d5e;
+    border-radius:10px 0 0 10px ;
+    border-right: none;
+    outline: none;
+    font-size: 20px;
+    color: tomato;
+    background: none;
+}
+
+.search-button {
+    text-align: center;
+    height: 50px;
+    width: 40px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #111d5e;
+    border-radius: 0 10px 10px 0 ;
+    border-left: none;
+    background: none;
+    font-size: 20px;
+    border-left: 1px solid #111d5e;
+}
+
+.fa-search {
+    color: #111d5e;
+}
+
+.fa-star, .fa-star-o, .fa-star-half-o {
+    color: #FFAA1D;
+}
+
+.s-result {
+    width: 81%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 0;
+    margin: 0;
+}
+
+.product-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #111d5e;
+    width: 235px;
+    height: 300px;
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.image {
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image img {
+    max-width: 100%;
+    max-height: 100%; 
+}
+
+.description {
+    margin: 0 0 2.5%;
+    height: 2.8em; 
+    overflow: hidden; 
+    padding: 12px;
+    font-size: 16px;
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; 
+    white-space: normal; 
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.rating {
+    font-size: 24px; 
+}
+
+.reviews-link {
+    font-size: 18px; 
+    width: 100px;
+    font-weight: bold;
+    color: #111d5e;
+    border: 0 none;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    text-decoration: none;
+}
+
+.loader {
+    margin: auto;
+    margin-top: 100%;
+    border: 10px solid #EAF0F6;
+    border-radius: 50%;
+    border-top: 10px solid tomato;
+    width: 50px;
+    height: 50px;
+    animation: spinner 0.7s linear infinite;
+}
+
+/* scroll bar  */
+
+body::-webkit-scrollbar {
+    width: 12px;               
+}
+  
+body::-webkit-scrollbar-track {
+    background: #111d5e;       
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: tomato;        
+    border: 0; 
+}
+
+/* loading animation frame */
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* responsivity */
+
+@media screen and (max-width: 1600px) {
+    .s-result {
+        grid-template-columns: auto auto auto auto;
+    }
+
+    .product-card {
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .s-result {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .s-result {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .product-card {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #111d5e;
+        width: 180px;
+        height: 250px;
+        margin: 10px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .description {
+        max-height: 2.5em; 
+        font-size: 12px;
+    }
+    
+    .rating {
+        font-size: 18px; 
+    }
+    
+    .reviews-link {
+        font-size: 14px; 
+    }
+}
+
+
+  
+
+
+
+
+
+
+
+  

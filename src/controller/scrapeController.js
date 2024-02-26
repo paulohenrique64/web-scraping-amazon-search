@@ -15,27 +15,27 @@ const amazonSearchScrape = (req, res) => {
             }
         })
         .then(res => {
-            // Carregando o conteúdo HTML da página usando Cheerio
-            const $ = cheerio.load(res.data);
-            
-            $('.s-card-container').each((index, element) => {
+            // load the html content using cheerio
+            const $ = cheerio.load(res.data); 
+        
+            $('[data-asin!=""]').each((index, element) => {
                 // product title
-                const productTitle = $(element).find('.a-spacing-base > .a-spacing-small > .s-title-instructions-style > .s-line-clamp-4').prop('innerText');
+                const productTitle = $(element).find('.a-spacing-base > .a-spacing-small > .s-title-instructions-style > h2').prop('innerText');
 
                 // product rating
-                let productRating = $(element).find('.a-spacing-base > .a-spacing-small > .a-spacing-none > .a-size-small > span > .a-declarative').prop('innerText');
+                let productRating = $(element).find('.a-icon-star-small').prop('innerText');
                 
-                // arrumar (deixar clean)
+                // extract rating number
                 if (productRating) {
                     productRating = productRating.split(' ');
                     productRating = productRating[0];
                 }
 
                 // product review
-                const productReviews = $(element).find('.a-spacing-base > .a-spacing-small > .a-spacing-none > .a-size-small > span > .a-link-normal').prop('innerText');
+                const productReviews = $(element).find('.a-link-normal.s-underline-text.s-underline-link-text.s-link-style > .a-size-base.s-underline-text').prop('innerText');
 
                 // product img
-                const productImg = $(element).find('.a-spacing-base > .s-product-image-container > span > a > div > img').attr('src');
+                const productImg = $(element).find('.s-image').attr('src');
 
                 products.push({
                     title: productTitle,
@@ -49,14 +49,12 @@ const amazonSearchScrape = (req, res) => {
         })
         .catch(error => {
             console.log(error);
-            return res.status(500).send({error: 'Internal server error'}).end();
+            return res.status(500).send({message: 'Internal server error', error}).end();
         })
         .finally(() => {
             // return list of products
-            return res.status(200).send({products: products}).end();
+            return res.status(200).send({products}).end();
         });
 };
 
 module.exports = amazonSearchScrape;
-
-// "www.amazon.com.br/s?k=notebook"

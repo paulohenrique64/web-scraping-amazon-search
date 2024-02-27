@@ -1,4 +1,5 @@
-# https://amazon-web-scraping.azurewebsites.net/
+### https://paulohenrique64.github.io/amazon-web-scraping/
+### https://amazon-web-scraping.azurewebsites.net/
 
 ![1](https://github.com/paulohenrique64/web-scraping-amazon-search/blob/main/screenshot.png)
 

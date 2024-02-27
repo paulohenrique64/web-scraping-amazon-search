@@ -3,6 +3,8 @@ const searchInput = document.querySelector('.search-input');
 const searcResultDiv = document.querySelector('.s-result');
 const loadingDiv = document.querySelector('.loading-animation');
 
+const localhostPORT = '8080';
+
 searchButton.addEventListener('click', () => {
     const keyword = searchInput.value;
     console.log(keyword);
@@ -13,12 +15,15 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+// makes the AJAX call to the backend endpoint using fetch API
+// i used fetch API for simplicity
 function getProducts(keyword) {
-    fetch(`http://localhost:8080/api/scrape/${keyword}`)
+    fetch(`http://localhost:${localhostPORT}/api/scrape/${keyword}`)
         .then(response => {
             removeLoadingAnimation();
             response.json()
                 .then(responseJson => {
+                    console.log(responseJson.products);
                     if (responseJson.products)
                         showProducts(responseJson.products);
                     else
@@ -47,6 +52,7 @@ function removeLoadingAnimation() {
     loadingDiv.innerHTML = '';
 }
 
+// loads all data received from the API into the HTML page
 function showProducts(products) {
     products.forEach(product => {
         let cardHTML = `
@@ -71,6 +77,8 @@ function showProducts(products) {
     });
 }
 
+// algorithm to customize rating stars based on rating number, 
+// very simple algorithm
 function generateRatingStars(rating) {
     let starsHTML = `<span class="sr-only">Rating: ${rating} out of 5 stars</span>`;
     let fullStars = Math.floor(rating);

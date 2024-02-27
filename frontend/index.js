@@ -19,13 +19,18 @@ function getProducts(keyword) {
             removeLoadingAnimation();
             response.json()
                 .then(responseJson => {
-                    showProducts(responseJson.products);
+                    if (responseJson.products)
+                        showProducts(responseJson.products);
+                    else
+                        alert('an error ocurred, try again');
                 })
                 .catch(error => {
                     console.log(error);
                 })
         })
         .catch(error => {
+            removeLoadingAnimation();
+            alert('the amazon-web-scraping API is offline');
             console.log(error);
         });
 }

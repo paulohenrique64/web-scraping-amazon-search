@@ -4,7 +4,8 @@
   "description": "A web scraping of a amazon product page",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "test": "nodemon app.js",
+    "dev": "node app.js"
   },
   "author": "Paulo Henrique Ribeiro Alves",
   "license": "ISC",

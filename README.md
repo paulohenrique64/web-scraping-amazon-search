@@ -1,9 +1,6 @@
-### https://paulohenrique64.github.io/amazon-web-scraping/
-### https://amazon-web-scraping.azurewebsites.net/
-
-![1](https://github.com/paulohenrique64/web-scraping-amazon-search/blob/main/screenshot.png)
-
 # Web scraping amazon search
+
+https://paulohenrique64.github.io/amazon-web-scraping/
 
 ## Requirements to run the project
 

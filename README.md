@@ -17,7 +17,6 @@ https://paulohenrique64.github.io/amazon-web-scraping/
 - Run `npm run dev`
 - Back to `root` of project
 - Open `/frontend/index.html` file in your browser
-- Ready 🎉
 
 ### Project structure
 
